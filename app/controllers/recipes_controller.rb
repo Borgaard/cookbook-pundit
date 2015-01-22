@@ -19,6 +19,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    authorize @recipe
   end
 
   def create
@@ -29,11 +30,13 @@ class RecipesController < ApplicationController
   end
 
   def update
+    authorize @recipe
     @recipe.update(recipe_params)
     respond_with(@recipe)
   end
 
   def destroy
+    authorize @recipe
     @recipe.destroy
     respond_with(@recipe)
   end
